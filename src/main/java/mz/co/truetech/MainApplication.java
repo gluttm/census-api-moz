@@ -21,8 +21,9 @@ import mz.co.truetech.dto.RoleRequest;
 import mz.co.truetech.enums.Gender;
 import mz.co.truetech.jwt.JwtConfig;
 import mz.co.truetech.pojos.UserRoleRequest;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
-
+@EnableWebMvc
 @SpringBootApplication(scanBasePackages="mz.co.truetech")
 public class MainApplication {
 
