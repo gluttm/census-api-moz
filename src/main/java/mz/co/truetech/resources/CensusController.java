@@ -27,7 +27,6 @@ import java.util.Locale;
 
 @RestController
 @RequestMapping("/api/v1/census")
-@ApiIgnore
 @RequiredArgsConstructor
 public class CensusController extends GenderConverter {
 
@@ -35,7 +34,6 @@ public class CensusController extends GenderConverter {
 
 
 	@GetMapping
-	@PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_MANAGER')")
 	public ResponseEntity<Page<Census>> findAllBy(
 			@RequestParam(name = "district") String district,
 			@RequestParam(name = "year", required = false) Integer year,

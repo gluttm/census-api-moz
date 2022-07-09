@@ -56,7 +56,11 @@ public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter {
 				);
 		jwtUPfilter.setFilterProcessesUrl("/api/v1/login");
 		http.logout().clearAuthentication(true).logoutUrl("/api/v1/logout").invalidateHttpSession(true);
-		http.authorizeRequests().antMatchers("/h2-console/**").permitAll(); 
+		http.authorizeRequests().antMatchers("/h2-console/**").permitAll();
+		http.authorizeRequests().antMatchers("/api/v1/census").permitAll();
+		http.authorizeRequests().antMatchers("/index.html", "/", "/home",
+				"/assets/css/*.css", "/asstes/vendor/bootstrap/css/*.css",
+				"/assets/vendor/**","/favicon.ico","/assets/vendor/bootstrap/js/*.js","/*.js.map").permitAll();
 	    http.headers().frameOptions().disable(); // fix h2 refused to connect
 		http.cors().and()
 			.csrf()
@@ -67,7 +71,7 @@ public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter {
 			.authorizeRequests()
 			.antMatchers("/api/v1/login/**").permitAll()
 			.antMatchers("/swagger-ui/**").permitAll()
-			.antMatchers("/").permitAll()
+			//.antMatchers("/", "/favicon.ico","/*.js","/*.js.map", "/*.css", "/*.css.map").permitAll()
 			.anyRequest()
 			.authenticated();
 	}
