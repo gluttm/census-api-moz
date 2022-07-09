@@ -46,7 +46,7 @@ public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter {
 		jwtUPfilter.setFilterProcessesUrl("/api/v1/login");
 		http.logout().clearAuthentication(true).logoutUrl("/api/v1/logout").invalidateHttpSession(true);
 		http.authorizeRequests().antMatchers("/h2-console/**").permitAll();
-		http.authorizeRequests().antMatchers("/api/v1/census").permitAll();
+		http.authorizeRequests().antMatchers("/api/v1/census/**").permitAll();
 		http.authorizeRequests().antMatchers("/index.html", "/", "/home",
 				"/assets/css/*.css", "/assets/js/**", "/asstes/vendor/bootstrap/css/*.css",
 				"/assets/vendor/**","/favicon.ico","/assets/vendor/bootstrap/js/*.js","/*.js.map").permitAll();
