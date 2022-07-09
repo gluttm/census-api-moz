@@ -28,10 +28,12 @@ import mz.co.truetech.jwt.JwtTokenVerifier;
 import mz.co.truetech.jwt.JwtUsernameAndPasswordAuthenticationFilter;
 import mz.co.truetech.repository.UserRepository;
 import mz.co.truetech.service.UserService;
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 @Configuration
 @RequiredArgsConstructor
 @EnableWebSecurity
+@EnableSwagger2
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter {
 
