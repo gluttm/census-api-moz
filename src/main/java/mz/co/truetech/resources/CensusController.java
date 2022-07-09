@@ -1,29 +1,19 @@
 package mz.co.truetech.resources;
 
 import lombok.RequiredArgsConstructor;
-import mz.co.truetech.dto.RoleRequest;
 import mz.co.truetech.entity.Census;
-import mz.co.truetech.entity.Role;
 import mz.co.truetech.enums.Gender;
 import mz.co.truetech.enums.GenderConverter;
 import mz.co.truetech.enums.Zone;
 import mz.co.truetech.exceptions.ApiRequestException;
-import mz.co.truetech.pojos.RequestSuccessResponse;
 import mz.co.truetech.service.CensusService;
-import mz.co.truetech.service.RoleService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
-import springfox.documentation.annotations.ApiIgnore;
-
-import javax.validation.Valid;
-import java.net.URI;
-import java.util.Locale;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/api/v1/census")

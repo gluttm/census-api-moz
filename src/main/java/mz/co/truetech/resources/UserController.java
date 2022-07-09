@@ -1,28 +1,22 @@
 package mz.co.truetech.resources;
 
-import java.net.URI;
-import java.security.Principal;
-
 import mz.co.truetech.dto.projection.PUserDTO;
 import mz.co.truetech.exceptions.ApiRequestException;
 import mz.co.truetech.pojos.RequestSuccessResponse;
+import mz.co.truetech.pojos.UserRoleRequest;
+import mz.co.truetech.service.UserService;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
-import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.annotation.CurrentSecurityContext;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import mz.co.truetech.dto.UserDTO;
-import mz.co.truetech.pojos.UserRoleRequest;
-import mz.co.truetech.service.UserService;
-import springfox.documentation.annotations.ApiIgnore;
-
 import javax.validation.Valid;
+import java.net.URI;
 
 @RestController
 @RequestMapping("/api/v1/users")

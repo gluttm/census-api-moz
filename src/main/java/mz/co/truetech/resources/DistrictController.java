@@ -2,18 +2,14 @@ package mz.co.truetech.resources;
 
 import lombok.RequiredArgsConstructor;
 import mz.co.truetech.dto.DistrictDTO;
-import mz.co.truetech.dto.PermissionDTO;
 import mz.co.truetech.entity.District;
 import mz.co.truetech.entity.Permission;
 import mz.co.truetech.exceptions.ApiRequestException;
 import mz.co.truetech.service.DistrictService;
-import mz.co.truetech.service.PermissionService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
-import springfox.documentation.annotations.ApiIgnore;
 
 import javax.validation.Valid;
 import java.net.URI;
