@@ -1,12 +1,11 @@
 package mz.co.truetech.config;
 
-import java.util.Arrays;
-import java.util.List;
-
-import javax.crypto.SecretKey;
-
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
+import mz.co.truetech.jwt.JwtConfig;
+import mz.co.truetech.jwt.JwtTokenVerifier;
+import mz.co.truetech.jwt.JwtUsernameAndPasswordAuthenticationFilter;
+import mz.co.truetech.repository.UserRepository;
+import mz.co.truetech.service.UserService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.env.Environment;
@@ -14,7 +13,6 @@ import org.springframework.security.authentication.dao.DaoAuthenticationProvider
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.http.SessionCreationPolicy;
@@ -23,12 +21,9 @@ import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
-import mz.co.truetech.jwt.JwtConfig;
-import mz.co.truetech.jwt.JwtTokenVerifier;
-import mz.co.truetech.jwt.JwtUsernameAndPasswordAuthenticationFilter;
-import mz.co.truetech.repository.UserRepository;
-import mz.co.truetech.service.UserService;
-import springfox.documentation.swagger2.annotations.EnableSwagger2;
+import javax.crypto.SecretKey;
+import java.util.Arrays;
+import java.util.List;
 
 @Configuration
 @RequiredArgsConstructor
