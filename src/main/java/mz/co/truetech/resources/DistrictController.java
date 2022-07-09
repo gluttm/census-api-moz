@@ -2,6 +2,7 @@ package mz.co.truetech.resources;
 
 import lombok.RequiredArgsConstructor;
 import mz.co.truetech.dto.DistrictDTO;
+import mz.co.truetech.dto.projection.PDistrictDTO;
 import mz.co.truetech.entity.District;
 import mz.co.truetech.entity.Permission;
 import mz.co.truetech.exceptions.ApiRequestException;
@@ -30,8 +31,8 @@ public class DistrictController {
 	}
 
 	@GetMapping("/filter")
-	public ResponseEntity<List<District>> findAllByName(@RequestParam String name) {
-		List<District> list = service.findAllByName(name.toUpperCase(Locale.ROOT));
+	public ResponseEntity<List<PDistrictDTO>> findAllByName(@RequestParam String name) {
+		List<PDistrictDTO> list = service.findAllByName(name.toUpperCase(Locale.ROOT));
 		System.out.println(name);
 		return ResponseEntity.ok().body(list);
 	}

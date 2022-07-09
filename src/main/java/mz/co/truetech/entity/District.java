@@ -46,6 +46,7 @@ public class District {
     public Set<Census> getCensuses() {
         return this.censuses;
     }
+
     @JsonBackReference
     public Province getProvince() {
         return province;

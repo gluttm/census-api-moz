@@ -3,6 +3,7 @@ package mz.co.truetech.service;
 import lombok.RequiredArgsConstructor;
 import mz.co.truetech.dto.DistrictDTO;
 import mz.co.truetech.dto.RoleRequest;
+import mz.co.truetech.dto.projection.PDistrictDTO;
 import mz.co.truetech.entity.District;
 import mz.co.truetech.entity.Role;
 import mz.co.truetech.exceptions.ApiRequestException;
@@ -28,7 +29,7 @@ public class DistrictService {
         return repository.findAll();
     }
 
-    public List<District> findAllByName(String name) {
+    public List<PDistrictDTO> findAllByName(String name) {
         return repository.findByNameContaining(name);
     }
 
