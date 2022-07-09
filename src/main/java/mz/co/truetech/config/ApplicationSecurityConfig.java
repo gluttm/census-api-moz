@@ -33,7 +33,6 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @Configuration
 @RequiredArgsConstructor
 @EnableWebSecurity
-@EnableSwagger2
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter {
 
@@ -43,13 +42,6 @@ public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter {
 	private final SecretKey secretKey;
 	private final UserRepository userRepository;
 	private final Environment environment;
-	
-	private static final String[] AUTH_WHITELIST = {
-	        "/swagger-resources/**",
-	        "/swagger-ui.html",
-	        "/v2/api-docs",
-	        "/webjars/**"
-	};
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
@@ -72,8 +64,6 @@ public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter {
 			.addFilterAfter(new JwtTokenVerifier(jwtConfig, secretKey), JwtUsernameAndPasswordAuthenticationFilter.class)
 			.authorizeRequests()
 			.antMatchers("/api/v1/login/**").permitAll()
-			.antMatchers("/swagger-ui/**").permitAll()
-			//.antMatchers("/", "/favicon.ico","/*.js","/*.js.map", "/*.css", "/*.css.map").permitAll()
 			.anyRequest()
 			.authenticated();
 	}
@@ -102,11 +92,6 @@ public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter {
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", configuration);
         return source;
-    }
-	// THIS LINE WAS ADDED TO ALLOW SWAGGER ACCESS
-    @Override
-    public void configure(WebSecurity web) throws Exception {
-        web.ignoring().antMatchers(AUTH_WHITELIST);
     }
 
 }
