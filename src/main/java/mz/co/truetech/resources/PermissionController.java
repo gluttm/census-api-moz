@@ -26,7 +26,6 @@ import javax.validation.Valid;
 
 @RestController
 @RequestMapping("/api/v1/permissions")
-@ApiIgnore
 public class PermissionController {
 	
 	@Autowired

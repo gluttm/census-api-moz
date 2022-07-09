@@ -29,7 +29,6 @@ import javax.validation.Valid;
 
 @RestController
 @RequestMapping("/api/v1/roles")
-@ApiIgnore
 public class RoleController {
 
 	@Autowired

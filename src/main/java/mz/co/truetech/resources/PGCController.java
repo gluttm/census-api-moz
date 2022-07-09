@@ -14,7 +14,6 @@ import java.util.Set;
 
 @RestController
 @RequestMapping("/api/v1/pgc")
-@ApiIgnore
 public class PGCController {
     private final PGCService pgcService;
 

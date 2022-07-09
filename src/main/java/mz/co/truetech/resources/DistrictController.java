@@ -46,7 +46,6 @@ public class DistrictController {
 		return ResponseEntity.ok().body(obj);
 	}
 
-	@ApiIgnore
 	@PostMapping
 	@PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_MANAGER')")
 	public ResponseEntity<DistrictDTO> insert(@RequestBody @Valid DistrictDTO districtDTO) {
@@ -58,7 +57,6 @@ public class DistrictController {
 		
 		return ResponseEntity.created(uri).body(districtDTO);
 	}
-	@ApiIgnore
 	@DeleteMapping(value="/{id}")
 	public ResponseEntity<Void> delete(@PathVariable Long id) {
 		//service.delete(id);
@@ -66,7 +64,6 @@ public class DistrictController {
 	}
 	
 	@PutMapping(value="/{id}")
-	@ApiIgnore
 	public ResponseEntity<Permission> update(@PathVariable Long id, @RequestBody Permission obj) {
 		//obj = service.update(id, obj);
 		return ResponseEntity.ok().body(obj);

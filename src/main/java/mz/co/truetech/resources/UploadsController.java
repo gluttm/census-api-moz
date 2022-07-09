@@ -27,7 +27,6 @@ import springfox.documentation.annotations.ApiIgnore;
 @RestController
 @RequestMapping("/api/v1/census")
 @RequiredArgsConstructor
-@ApiIgnore
 public class UploadsController {
 	
 	private final FileUploadService fileUploadService;
